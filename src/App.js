@@ -6,6 +6,8 @@ import NewFlight from "./components/NewFlight";
 import {Container} from "@mui/material";
 import Passengers from "./pages/Passengers";
 import NewPassenger from "./components/NewPassenger";
+import FlightDetails from "./pages/FlightDetails";
+import React from "react";
 
 function App() {
 
@@ -16,9 +18,10 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Home/>}/>
                     <Route path="/flights" element={<Flights/>}/>
-                    <Route path="/passengers" element={<Passengers />} />
+                    <Route path="/passengers" element={<Passengers/>}/>
                     <Route path="/add-flight" element={<NewFlight/>}/>
-                    <Route path="/add-passenger" element={<NewPassenger />} />
+                    <Route path="/add-passenger" element={<NewPassenger/>}/>
+                    <Route path="/flights/:flightId" element={<FlightDetails/>}/>
                 </Routes>
             </Router>
         </Container>

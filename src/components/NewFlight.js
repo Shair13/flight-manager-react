@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {addFlight} from "../logic/flights";
+import {addFlight} from "../logic/flightApi";
 import {Box, Button, Input, Stack, TextField} from "@mui/material";
 
 const NewFlight = () => {
