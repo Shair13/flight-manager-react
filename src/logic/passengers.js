@@ -44,13 +44,21 @@ export const getPassengerById = async (id, successCallback) => {
 
 export const addPassenger = async (passenger) => {
     try {
-        await fetch(`${API_URL}/passengers`, {
+        const response = await fetch(`${API_URL}/passengers`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(passenger)
         })
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(JSON.stringify(errorData));
+        }
+
+        console.info("The passenger has been added.");
+
     } catch (err) {
         console.error(err)
     }

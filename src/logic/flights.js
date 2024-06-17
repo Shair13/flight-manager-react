@@ -44,13 +44,21 @@ export const getFlightById = async (id, successCallback) => {
 
 export const addFlight = async (flight) => {
     try {
-        await fetch(`${API_URL}/flights`, {
+        const response = await fetch(`${API_URL}/flights`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(flight)
         })
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(JSON.stringify(errorData));
+        }
+
+        console.info("The flight has been added.");
+
     } catch (err) {
         console.error(err)
     }
