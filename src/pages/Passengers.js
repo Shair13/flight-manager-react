@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Table, TableBody, TableContainer} from "@mui/material";
-import {getPassengers} from "../logic/passengers";
+import {getPassengers} from "../logic/passengersApi";
 import Passenger from "../components/Passenger";
 import {PassengerTableHead} from "../components/PassengerTableHead";
 

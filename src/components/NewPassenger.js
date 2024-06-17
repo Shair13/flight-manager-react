@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Box, Button, Stack, TextField} from "@mui/material";
-import {addPassenger} from "../logic/passengers";
+import {addPassenger} from "../logic/passengersApi";
 
 const NewPassenger = () => {
 

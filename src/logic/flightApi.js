@@ -30,13 +30,13 @@ export const getFlightById = async (id, successCallback) => {
             }
         });
 
-        const flight = await response.json();
+        const jsonResponse = await response.json();
 
-        if (flight.error || typeof successCallback !== "function") {
-            throw new Error("Unexpected error!");
+        if (typeof successCallback !== "function" || !response.ok) {
+            throw new Error(JSON.stringify(jsonResponse));
         }
 
-        successCallback(flight);
+        successCallback(jsonResponse);
     } catch (err) {
         console.error(err);
     }
