@@ -9,6 +9,7 @@ export const PassengerTableHead = () => {
                 <TableCell align={"center"}>Name</TableCell>
                 <TableCell align={"center"}>Surname</TableCell>
                 <TableCell align={"center"}>Phone</TableCell>
+                <TableCell align={"center"}>Actions</TableCell>
             </TableRow>
         </TableHead>
     )

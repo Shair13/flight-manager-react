@@ -18,13 +18,13 @@ export const Flight = ({number, flightId, route, departure, availableSeats, isHi
             <TableCell align={"center"}>{availableSeats}</TableCell>
             <TableCell align={"center"}>
                 <Stack spacing={1} direction="row" justifyContent="center">
-                    <Link to={`/flights/${flightId}`} hidden={isHiddenDetails}>
+                    <Link to={`/flight/${flightId}`} hidden={isHiddenDetails}>
                         <Button variant="outlined">Details</Button>
                     </Link>
-                    <Link to={`/flights/${flightId}`}>
+                    <Link to={`/update-flight/${flightId}`}>
                         <Button variant="contained">Update</Button>
                     </Link>
-                    <Link to={`/flights/${flightId}`}>
+                    <Link to={`/delete-flight/${flightId}`}>
                         <Button variant="outlined" color="error">Delete</Button>
                     </Link>
                 </Stack>

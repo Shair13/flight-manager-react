@@ -8,6 +8,7 @@ import Passengers from "./pages/Passengers";
 import NewPassenger from "./components/NewPassenger";
 import FlightDetails from "./pages/FlightDetails";
 import React from "react";
+import UpdateFlight from "./pages/UpdateFlight";
 
 function App() {
 
@@ -21,7 +22,8 @@ function App() {
                     <Route path="/passengers" element={<Passengers/>}/>
                     <Route path="/add-flight" element={<NewFlight/>}/>
                     <Route path="/add-passenger" element={<NewPassenger/>}/>
-                    <Route path="/flights/:flightId" element={<FlightDetails/>}/>
+                    <Route path="/flight/:flightId" element={<FlightDetails/>}/>
+                    <Route path="/update-flight/:flightId" element={<UpdateFlight/>}/>
                 </Routes>
             </Router>
         </Container>
