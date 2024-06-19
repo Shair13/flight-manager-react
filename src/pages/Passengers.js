@@ -17,7 +17,7 @@ const Passengers = () => {
             <Table>
                 <PassengerTableHead/>
                 <TableBody>
-                    {passengers.map(passenger => <Passenger key={passenger.id} passenger={passenger}/>)}
+                    {passengers.map(passenger => <Passenger key={passenger.id} passenger={passenger} setPassenger={setPassengers}/>)}
                 </TableBody>
             </Table>
         </TableContainer>

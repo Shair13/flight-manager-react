@@ -23,21 +23,18 @@ const FlightDetails = () => {
 
     return (
         <div>
-            <h1>Details of flight ID: {flightId}</h1>
+            <h1>Details of flight id: {flightId}</h1>
             <TableContainer>
                 <Table>
                     <FlightTableHead/>
                     <TableBody>
-                        <Flight key={flight.id}
-                                flight={flight}
-                                availableSeats={flight.availableSeats}
-                                isHiddenDetails={true}/>
+                        <Flight flight={flight} isHiddenDetails={true}/>
                     </TableBody>
                 </Table>
 
                 {flight.passengers &&
                     <>
-                        <h1>{flight.passengers.length} Passengers found on this flight.</h1>
+                        <h1>{flight.passengers.length} people on this flight:</h1>
                         <Table>
                             <PassengerTableHead/>
                             <TableBody>
