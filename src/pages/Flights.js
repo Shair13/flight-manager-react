@@ -18,12 +18,9 @@ const Flights = () => {
                 <FlightTableHead/>
                 <TableBody>
                     {flights.map(flight => <Flight key={flight.id}
-                                                   flightId={flight.id}
-                                                   number={flight.number}
-                                                   route={flight.route}
-                                                   departure={flight.departure}
-                                                   availableSeats={flight.availableSeats}
-                                                   isHiddenDetails={false}/>)}
+                                                   flight={flight}
+                                                   isHiddenDetails={false}
+                                                   setFlights={setFlights}/>)}
                 </TableBody>
             </Table>
         </TableContainer>

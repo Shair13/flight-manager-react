@@ -17,11 +17,7 @@ const Passengers = () => {
             <Table>
                 <PassengerTableHead/>
                 <TableBody>
-                    {passengers.map(passenger => <Passenger key={passenger.id}
-                                                            passengerId={passenger.id}
-                                                            name={passenger.name}
-                                                            surname={passenger.surname}
-                                                            phone={passenger.phone}/>)}
+                    {passengers.map(passenger => <Passenger key={passenger.id} passenger={passenger}/>)}
                 </TableBody>
             </Table>
         </TableContainer>

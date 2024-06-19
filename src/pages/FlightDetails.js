@@ -29,10 +29,7 @@ const FlightDetails = () => {
                     <FlightTableHead/>
                     <TableBody>
                         <Flight key={flight.id}
-                                flightId={flight.id}
-                                number={flight.number}
-                                route={flight.route}
-                                departure={flight.departure}
+                                flight={flight}
                                 availableSeats={flight.availableSeats}
                                 isHiddenDetails={true}/>
                     </TableBody>
@@ -45,10 +42,7 @@ const FlightDetails = () => {
                             <PassengerTableHead/>
                             <TableBody>
                                 {flight.passengers.map(passenger => <Passenger key={passenger.id}
-                                                                               passengerId={passenger.id}
-                                                                               name={passenger.name}
-                                                                               surname={passenger.surname}
-                                                                               phone={passenger.phone}/>)}
+                                                                               passenger={passenger}/>)}
                             </TableBody>
                         </Table>
                     </>
