@@ -1,7 +1,6 @@
 import React from 'react';
 import FlightForm from "../components/FlightForm";
 import {useParams} from "react-router-dom";
-import {Box} from "@mui/material";
 
 const UpdateFlight = () => {
 

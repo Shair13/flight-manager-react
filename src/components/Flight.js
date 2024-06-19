@@ -2,10 +2,6 @@ import {Button, Stack, TableCell, TableRow} from "@mui/material";
 import {Link} from "react-router-dom";
 import React from "react";
 
-function DeleteIcon() {
-    return null;
-}
-
 export const Flight = ({number, flightId, route, departure, availableSeats, isHiddenDetails}) => {
 
 

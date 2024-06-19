@@ -12,10 +12,10 @@ const Passenger = ({passengerId, name, surname, phone}) => {
             <TableCell align={"center"}>{phone}</TableCell>
             <TableCell align={"center"}>
                 <Stack spacing={1} direction="row" justifyContent="center">
-                    <Link to={`/flights/${passengerId}`}>
+                    <Link to={`/update-passenger/${passengerId}`}>
                         <Button variant="contained">Update</Button>
                     </Link>
-                    <Link to={`/flights/${passengerId}`}>
+                    <Link to={`/passenger-delete/${passengerId}`}>
                         <Button variant="outlined" color="error">Delete</Button>
                     </Link>
                 </Stack>

@@ -1,6 +1,4 @@
-import React, {useState} from 'react';
-import {addFlight} from "../logic/flightApi";
-import {Box, Button, Input, Stack, TextField} from "@mui/material";
+import React from 'react';
 import FlightForm from "./FlightForm";
 
 const NewFlight = () => {
@@ -9,7 +7,7 @@ const NewFlight = () => {
     return (
         <>
             <h1>Add Flight</h1>
-            <FlightForm fetchType={"add"} message={"Add flight"}/>
+            <FlightForm fetchType={"add"} message={"Add Flight"}/>
         </>
 
     );

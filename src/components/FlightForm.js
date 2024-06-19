@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Box, Button, Input, Stack, TextField} from "@mui/material";
 import {addFlight, getFlightById, updateFlight} from "../logic/flightApi";
-import {redirect} from "react-router-dom";
 
 const FlightForm = ({fetchType, message, flightId}) => {
 
