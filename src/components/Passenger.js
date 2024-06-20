@@ -2,8 +2,10 @@ import {Button, Stack, TableCell, TableRow} from "@mui/material";
 import {Link} from "react-router-dom";
 import React from "react";
 import DeletePassengerButton from "./DeletePassengerButton";
+import DeletePassengerFromFlightButton from "./DeletePassengerFromFlightButton";
+import AddPassengerToFlightButton from "./AddPassengerToFlightButton";
 
-const Passenger = ({passenger, setPassenger}) => {
+const Passenger = ({passenger, setPassenger, setFlight, actions, flightId}) => {
 
     const {id, name, surname, phone} = passenger;
 
@@ -14,12 +16,24 @@ const Passenger = ({passenger, setPassenger}) => {
             <TableCell align={"center"}>{surname}</TableCell>
             <TableCell align={"center"}>{phone}</TableCell>
             <TableCell align={"center"}>
-                <Stack spacing={1} direction="row" justifyContent="center">
-                    <Link to={`/update-passenger/${id}`}>
-                        <Button variant="contained">Update</Button>
-                    </Link>
-                    <DeletePassengerButton passengerId={id} setPassenger={setPassenger}/>
-                </Stack>
+                {actions === "passengers" &&
+                    <Stack spacing={1} direction="row" justifyContent="center">
+                        <Link to={`/update-passenger/${id}`}>
+                            <Button variant="contained">Update</Button>
+                        </Link>
+                        <DeletePassengerButton passengerId={id} setPassenger={setPassenger}/>
+                    </Stack>
+                }
+                {actions === "flightDetails" &&
+                    <Stack spacing={1} direction="row" justifyContent="center">
+                        <DeletePassengerFromFlightButton passengerId={id} flightId={flightId} setFlight={setFlight}/>
+                    </Stack>
+                }
+                {actions === "addPassenger" &&
+                    <Stack spacing={1} direction="row" justifyContent="center">
+                        <AddPassengerToFlightButton passengerId={id} flightId={flightId}/>
+                    </Stack>
+                }
             </TableCell>
         </TableRow>
     );

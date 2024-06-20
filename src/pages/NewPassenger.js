@@ -1,6 +1,6 @@
 import React from 'react';
-import FlightForm from "./FlightForm";
-import PassengerForm from "./PassengerForm";
+import FlightForm from "../components/FlightForm";
+import PassengerForm from "../components/PassengerForm";
 
 const NewPassenger = () => {
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import FlightForm from "./FlightForm";
+import FlightForm from "../components/FlightForm";
 
 const NewFlight = () => {
 

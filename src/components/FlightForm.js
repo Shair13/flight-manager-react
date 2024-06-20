@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Box, Button, Input, Stack, TextField} from "@mui/material";
-import {addFlight, getFlightById, updateFlight} from "../logic/flightApi";
+import {addFlight, getFlightById, updateFlight} from "../logic/flightsApi";
 
 const FlightForm = ({fetchType, message, flightId}) => {
 
@@ -13,9 +13,16 @@ const FlightForm = ({fetchType, message, flightId}) => {
         const [errors, setErrors] = useState([])
 
         useEffect(() => {
-            if (flightId) {
-                getFlightById(flightId, setFlight);
-            }
+            const fetchData = async () => {
+                try {
+                    const fetchedFlight = await getFlightById(flightId);
+                    setFlight(fetchedFlight);
+                } catch (error) {
+                    console.error(error);
+                }
+            };
+
+            fetchData();
         }, []);
 
         const inputHandler = (e) => {
@@ -69,7 +76,6 @@ const FlightForm = ({fetchType, message, flightId}) => {
             });
             setErrors([]);
         }
-
 
         return (
             <Box sx={{width: '40%'}}>

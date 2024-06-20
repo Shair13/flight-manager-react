@@ -1,12 +1,16 @@
 import React from "react";
-import {CircularProgress, Stack} from "@mui/material";
+import {CircularProgress, Grid} from "@mui/material";
 
 const Loading = () => {
 
     return (
-        <Stack sx={{color: 'grey.500'}} spacing={2} direction="row">
+        <Grid
+            container
+            justifyContent="center"
+            alignItems="center"
+            height="50vh">
             <CircularProgress color="secondary"/>
-        </Stack>);
+        </Grid>);
 }
 
 export default Loading;

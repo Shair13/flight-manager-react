@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import React from "react";
 import DeleteFlightButton from "./DeleteFlightButton";
 
-export const Flight = ({flight, isHiddenDetails,setFlights}) => {
+export const Flight = ({flight, isHidden,setFlights}) => {
 
     const {number, id, route, departure, availableSeats} = flight;
 
@@ -16,13 +16,17 @@ export const Flight = ({flight, isHiddenDetails,setFlights}) => {
             <TableCell align={"center"}>{availableSeats}</TableCell>
             <TableCell align={"center"}>
                 <Stack spacing={1} direction="row" justifyContent="center">
-                    <Link to={`/flight/${id}`} hidden={isHiddenDetails}>
+                    <Link to={`/add-passengers/${id}`} hidden={!isHidden}>
+                        <Button variant="contained" color="success">Add Passengers</Button>
+                    </Link>
+                    <Link to={`/flight/${id}`} hidden={isHidden}>
                         <Button variant="outlined">Details</Button>
                     </Link>
-                    <Link to={`/update-flight/${id}`}>
+                    <Link to={`/update-flight/${id}`} hidden={!isHidden}>
                         <Button variant="contained">Update</Button>
                     </Link>
                     <DeleteFlightButton flightId={id} setFlights={setFlights}/>
+
                 </Stack>
             </TableCell>
         </TableRow>

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Button} from "@mui/material";
-import {deleteFlight, getFlights} from "../logic/flightApi";
+import {deleteFlight, getFlights} from "../logic/flightsApi";
 
 const DeleteFlightButton = ({flightId, setFlights}) => {
 

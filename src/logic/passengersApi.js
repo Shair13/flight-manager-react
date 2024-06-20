@@ -9,13 +9,13 @@ export const getPassengers = async (successCallback) => {
             }
         });
 
-        const passengers = await response.json();
+        return response.json();
 
-        if (passengers.error || typeof successCallback !== "function") {
-            throw new Error("Unexpected error!");
-        }
-
-        successCallback(passengers);
+        // if (passengers.error || typeof successCallback !== "function") {
+        //     throw new Error("Unexpected error!");
+        // }
+        //
+        // successCallback(passengers);
     } catch (err) {
         console.error(err);
     }
