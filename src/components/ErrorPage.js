@@ -1,8 +1,12 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useLocation} from 'react-router-dom';
 import {Button} from "@mui/material";
 
-const ErrorComponent = ({message}) => {
+const ErrorPage = () => {
+
+    const location = useLocation();
+    const { message } = location.state || { message: "An unknown error occurred" };
+
     return (
         <div style={{ textAlign: 'center', marginTop: '20px' }}>
             <h2>Oops, something went wrong!</h2>
@@ -15,4 +19,4 @@ const ErrorComponent = ({message}) => {
     );
 };
 
-export default ErrorComponent;
+export default ErrorPage;

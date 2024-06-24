@@ -5,7 +5,7 @@ import DeletePassengerButton from "./DeletePassengerButton";
 import DeletePassengerFromFlightButton from "./DeletePassengerFromFlightButton";
 import AddPassengerToFlightButton from "./AddPassengerToFlightButton";
 
-const Passenger = ({passenger, setPassenger, setFlight, actions, flightId}) => {
+const Passenger = ({passenger, setPassengers, setFlight, actions, flightId}) => {
 
     const {id, name, surname, phone} = passenger;
 
@@ -21,7 +21,7 @@ const Passenger = ({passenger, setPassenger, setFlight, actions, flightId}) => {
                         <Link to={`/update-passenger/${id}`}>
                             <Button variant="contained">Update</Button>
                         </Link>
-                        <DeletePassengerButton passengerId={id} setPassenger={setPassenger}/>
+                        <DeletePassengerButton passengerId={id} setPassengers={setPassengers}/>
                     </Stack>
                 }
                 {actions === "flightDetails" &&

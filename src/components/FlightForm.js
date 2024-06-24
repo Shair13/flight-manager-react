@@ -1,9 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import {Box, Button, Input, Stack, TextField} from "@mui/material";
 import {addFlight, getFlightById, updateFlight} from "../logic/flightsApi";
+import ErrorPage from "./ErrorPage";
+import {useNavigate} from "react-router-dom";
 
 const FlightForm = ({fetchType, message, flightId}) => {
 
+        const navigate = useNavigate();
         const [flight, setFlight] = useState({
             number: "",
             route: "",
@@ -13,17 +16,20 @@ const FlightForm = ({fetchType, message, flightId}) => {
         const [errors, setErrors] = useState([])
 
         useEffect(() => {
-            const fetchData = async () => {
-                try {
-                    const fetchedFlight = await getFlightById(flightId);
-                    setFlight(fetchedFlight);
-                } catch (error) {
-                    console.error(error);
-                }
-            };
-
-            fetchData();
+            if (flightId) {
+                fetchData();
+            }
         }, []);
+
+        const fetchData = async () => {
+            try {
+                const fetchedFlight = await getFlightById(flightId);
+                setFlight(fetchedFlight);
+            } catch (error) {
+                console.error(error);
+                navigate('/error', {state: {message: error.message}});
+            }
+        };
 
         const inputHandler = (e) => {
             const {name, value} = e.target

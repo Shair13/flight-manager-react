@@ -11,6 +11,7 @@ import React from "react";
 import UpdateFlight from "./pages/UpdateFlight";
 import UpdatePassenger from "./pages/UpdatePassenger";
 import AddPassengerToFlight from "./pages/AddPassengerToFlight";
+import ErrorPage from "./components/ErrorPage";
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
                 <Header/>
                 <Routes>
                     <Route path="/" element={<Home/>}/>
+                    <Route path="/error" element={<ErrorPage/>}/>
                     <Route path="/flights" element={<Flights/>}/>
                     <Route path="/passengers" element={<Passengers actions={"passengers"}/>}/>
                     <Route path="/add-flight" element={<NewFlight/>}/>

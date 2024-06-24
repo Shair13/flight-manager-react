@@ -1,9 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import {Box, Button, Stack, TextField} from "@mui/material";
 import {addPassenger, getPassengerById, updatePassenger} from "../logic/passengersApi";
+import {useNavigate} from "react-router-dom";
 
 const PassengerForm = ({fetchType, message, passengerId}) => {
 
+        const navigate = useNavigate();
         const [passenger, setPassenger] = useState({
             name: "",
             surname: "",
@@ -13,10 +15,19 @@ const PassengerForm = ({fetchType, message, passengerId}) => {
 
         useEffect(() => {
             if (passengerId) {
-                getPassengerById(passengerId, setPassenger);
+                fetchData();
             }
         }, []);
 
+        const fetchData = async () => {
+            try {
+                const fetchedPassenger = await getPassengerById(passengerId);
+                setPassenger(fetchedPassenger);
+            } catch (error) {
+                console.error(error);
+                navigate('/error', {state: {message: error.message}});
+            }
+        };
 
         const inputHandler = (e) => {
             const {name, value} = e.target

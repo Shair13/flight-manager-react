@@ -7,7 +7,8 @@ const DeleteFlightButton = ({flightId, setFlights}) => {
         const buttonHandler = async (e) => {
             e.preventDefault();
             await deleteFlight(flightId)
-            await getFlights(setFlights);
+            const fetchedData = await getFlights();
+            setFlights(fetchedData);
         };
 
         return (

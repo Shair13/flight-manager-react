@@ -1,38 +1,32 @@
 import React, {useEffect, useState} from 'react';
 import {getFlightById} from "../logic/flightsApi";
 import {Table, TableBody, TableContainer} from "@mui/material";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import Passenger from "../components/Passenger";
 import Loading from "../components/Loading";
 import {FlightTableHead} from "../components/FlightTableHead";
 import {PassengerTableHead} from "../components/PassengerTableHead";
 import {Flight} from "../components/Flight";
-import ErrorComponent from "../components/ErrorComponent";
 
 const FlightDetails = () => {
 
+    const navigate = useNavigate();
     const {flightId} = useParams();
     const [flight, setFlight] = useState();
-    const [error, setError] = useState("")
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const fetchedFlight = await getFlightById(flightId);
-                setFlight(fetchedFlight);
-            } catch (error) {
-                setError(error);
-                console.error(error);
-
-            }
-        };
-
         fetchData();
     }, []);
 
-    if (error) {
-        return <ErrorComponent message={error.toString()}/>;
-    }
+    const fetchData = async () => {
+        try {
+            const fetchedFlight = await getFlightById(flightId);
+            setFlight(fetchedFlight);
+        } catch (error) {
+            console.error(error);
+            navigate('/error', {state: {message: error.message}});
+        }
+    };
 
     if (!flight) {
         return <Loading/>;

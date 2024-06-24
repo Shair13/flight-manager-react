@@ -3,35 +3,31 @@ import {getFlights} from "../logic/flightsApi";
 import {Table, TableBody, TableContainer} from "@mui/material";
 import {FlightTableHead} from "../components/FlightTableHead";
 import {Flight} from "../components/Flight";
-import ErrorComponent from "../components/ErrorComponent";
 import Loading from "../components/Loading";
+import {useNavigate} from "react-router-dom";
 
 const Flights = () => {
 
+    const navigate = useNavigate();
     const [flights, setFlights] = useState([]);
-    const [error, setError] = useState("")
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const fetchedFlights = await getFlights();
-                setFlights(fetchedFlights);
-            } catch (error) {
-                setError(error);
-                console.error(error);
-            }
-        };
-
         fetchData();
     }, []);
-
-    if (error) {
-        return <ErrorComponent message={error.toString()}/>;
-    }
 
     if (!flights) {
         return <Loading/>;
     }
+
+    const fetchData = async () => {
+        try {
+            const fetchedFlights = await getFlights();
+            setFlights(fetchedFlights);
+        } catch (error) {
+            console.error(error);
+            navigate('/error', {state: {message: error.message}});
+        }
+    };
 
     return (
         <TableContainer>
