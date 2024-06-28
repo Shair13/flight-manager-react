@@ -1,7 +1,7 @@
 import React from 'react';
 import {Button} from "@mui/material";
 import {deleteFlight, getFlights} from "../logic/flightsApi";
-import {redirect, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 const DeleteFlightButton = ({flightId, setFlights}) => {
 
