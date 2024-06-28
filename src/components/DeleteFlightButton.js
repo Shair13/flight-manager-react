@@ -1,14 +1,21 @@
 import React from 'react';
 import {Button} from "@mui/material";
 import {deleteFlight, getFlights} from "../logic/flightsApi";
+import {redirect, useNavigate} from "react-router-dom";
 
 const DeleteFlightButton = ({flightId, setFlights}) => {
+
+        const navigate = useNavigate();
 
         const buttonHandler = async (e) => {
             e.preventDefault();
             await deleteFlight(flightId)
             const fetchedData = await getFlights();
-            setFlights(fetchedData);
+            if (typeof setFlights === "function") {
+                setFlights(fetchedData);
+            } else {
+                navigate("/flights");
+            }
         };
 
         return (

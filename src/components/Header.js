@@ -13,7 +13,7 @@ const Header = () => {
             p={2}>
             <Grid container justifyContent="center" spacing={5}>
                 <ButtonGroup variant="contained" aria-label="Basic button group">
-                        <Link to="/"><Button>Home Page</Button></Link>
+                        <Link to="/"><Button>Home</Button></Link>
                         <Link to="/flights"><Button>Flights</Button></Link>
                         <Link to="/passengers"><Button>Passengers</Button></Link>
                         <Link to="/add-flight"><Button>Add New Flight</Button></Link>
